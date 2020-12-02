@@ -3,7 +3,7 @@ const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
-
+const port=process.env.PORT || 3000;
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
@@ -25,7 +25,7 @@ app.get('/:room', (req, res) => {
     })
   })
 
-server.listen(3000,()=>{console.log("server is listening on port 3000")
+server.listen(port,()=>{console.log("server is listening on port ${port}")
 
 })
 
