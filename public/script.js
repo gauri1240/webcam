@@ -74,35 +74,33 @@ function addVideoStream(video, stream) {
 
 const playa =()=>
 {
-  if(admin_id)
-  {
+  
     playStop();
-  }
-  else
-  {
-    playStop1();
-  }
-
+ 
 }
   const playStop = ()=> {
     let enabled=userVideoStream.getVideoTracks()[0].enabled;
     if(enabled)
     {
+      setPlayVideo()
+      userVideoStream.getVideoTracks()[0].enabled=false; 
+    }
+    else{
       setStopVideo()
       userVideoStream.getVideoTracks()[0].enabled=true; 
     }
     
     }
 
-    const playStop1 = ()=> {
-      let enabled=userVideoStream.getVideoTracks()[0].enabled;
-      if(enabled)
-      {
-        setPlayVideo()
-        userVideoStream.getVideoTracks()[0].enabled=false; 
-      }
+    // const playStop1 = ()=> {
+    //   let enabled=userVideoStream.getVideoTracks()[0].enabled;
+    //   if(enabled)
+    //   {
+    //     setPlayVideo()
+    //     userVideoStream.getVideoTracks()[0].enabled=false; 
+    //   }
       
-      }
+    //   }
 
  
 
