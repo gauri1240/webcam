@@ -13,12 +13,12 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
 
-var connection = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '',
-	database : 'collegedatabase'
-});
+// var connection = mysql.createConnection({
+// 	host     : 'localhost',
+// 	user     : 'root',
+// 	password : '',
+// 	database : 'collegedatabase'
+// });
 
 
 app.use(session({
@@ -37,8 +37,9 @@ app.post('/auth', function(req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 	if (username && password) {
-		connection.query('SELECT * FROM admin_login WHERE email = ? AND pass = ?', [username, password], function(error, results, fields) {
-			if (results.length > 0) {
+		//connection.query('SELECT * FROM admin_login WHERE email = ? AND pass = ?', [username, password], function(error, results, fields) {
+			// if (results.length > 0) {
+				if(username=='admin' && password=='admin'){
 				 ssn = req.session;
 				 req.session.loggedin = true;
 				 req.session.username = username;
@@ -51,7 +52,7 @@ app.post('/auth', function(req, res) {
 				res.send('Incorrect Username and/or Password!');
 			}			
 			res.end();
-		});
+		
 	} else {
 		res.send('Please enter Username and Password!');
 		res.end();
