@@ -6,14 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script>
     const ROOM_ID = "<%= roomId %>"
-    var admin_id = "<%= a %>"
-    
-    
     
   </script>
-  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+  
   <!-- <script defer src="peerjs.min.js"></script> -->
-  <script src="/socket.io/socket.io.js" defer></script>
+  
   <script src="script.js" defer></script>
  
   <title>Zoom Clone Video Chat</title>
@@ -28,22 +25,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    
     }
   </style>
 </head>
 <body>
-  <div id="video-grid">
-   
-  </div>
-  
-    
-  
-  <div id="play" onclick="playa()" class="main__controls__button main__video_button">
-  <i class="fas fa-video"></i>
-  <span>stop video</span>
-  
-  </div>
- 
+  <div id="video-grid"></div>
 </body>
 </html>
