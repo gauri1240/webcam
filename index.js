@@ -29,9 +29,9 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname + '/login.html'));
-});
+// app.get('/', function(req, res) {
+// 	res.sendFile(path.join(__dirname + '/login.html'));
+// });
 
 app.post('/auth', function(req, res) {
 	var username = req.body.username;
@@ -74,19 +74,17 @@ app.get('/home', function(req, res) {
 
 
 
-app.get('/aa', (req, res) => {
-	if (req.session.loggedin) {
+app.get('/', (req, res) => {
+
   res.redirect(`/${uuidV4()}`)
-	}
+
 })
 app.get('/:room', (req, res) => {
-	if (req.session.loggedin) {
-		var a=req.session.username;
+
+		var a='admin';
 	res.render('room', { roomId: req.params.room,a:a })
-	}
-	else{
-		res.render('user', { roomId: req.params.room })	
-	}
+	
+	
 })
 
   io.on('connection', socket => {
